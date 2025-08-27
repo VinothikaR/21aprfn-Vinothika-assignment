@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employers Account create</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="register-container">
+        <h3>Register Here</h3>
+        <p>To create an account</p>
+        <form action="emplogin.html" method="get">
+            <label for="fullname">Contact Person: <span class="required">*</span></label>
+            <input type="text" id="fullname" name="fullname" placeholder="Fullname" required>
+            <br><br>
+            <label for="mobile">Phone Number:<span class="required">*</span></label>
+            <input type="number" id="mobile" name="mobile" placeholder="Contact No" required>
+            <br><br>
+            <label for="email">Email ID:<span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Email ID" required>
+            <br><br>
+            <label for="password">Password:<span class="required">*</span></label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <br><br>
+            <label for="confirm-password">Confirm Password:<span class="required">*</span></label>
+            <input type="password" id="confirm-password" name="confirm_password" placeholder="Re-enter Password" required>
+            <br><br>
+            <label for="company">Company Name:<span class="required">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Enter your Organization name" required>
+            <br><br>
+            <label for="industry">Industry: <span class="required">*</span></label>
+            <select id="industry" name="industry" required>
+                <option value="">Select Industry</option>
+                <option value="it">IT</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="healthcare">Healthcare</option>
+            </select>
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" placeholder="Enter your company Website">
+
+            <button id="submit" type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

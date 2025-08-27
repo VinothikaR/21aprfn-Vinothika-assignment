@@ -1,9 +1,7 @@
 body{
     font-family: Arial, sans-serif;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 .required{
     color: red;
@@ -30,6 +28,15 @@ body{
     border-radius: 5px;
     border: 1px solid gray;
 }
+
+.register-container select{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 textarea.des{
     width: 500px;
     height: 100px;
@@ -184,10 +191,41 @@ button{
     cursor: pointer;
 }
 button:hover {
-background: #357abd;
+    background: blue;
 }
 .fixed{
     position: fixed;
     bottom: 0;
     left: 0;
 } 
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.search-container {
+    display: flex;
+    gap: 10px;
+}
+.search-container input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.search-container button {
+    background: blue;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.nav-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}

@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .user-info {
+            font-size: 16px;
+        }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .job-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        h2 { margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 8px; border: 1px solid #ccc; text-align: left; }
+        th { background: #f2f2f2; }
+    </style>
+
 </head>
 <body>
-    welcome to the job Portal...
+
+    <div class="top-bar">
+        <div class="logo">
+            <img class="img1" src="JPlogo.jpg" alt="Logo" height="40"></div>
+        <div class="search-container">
+            <input type="text" placeholder="Job title, keywords, or company">
+            <input type="text" placeholder="City, state, zip code, or remote">
+            <button>Find Jobs</button>
+        </div>
+        <div class="user-info">
+            Welcome, {{ fullname }}<br>
+            Email: {{ email }}
+        </div>
+        <div class="nav-links">
+            <a href="empaccount.html">Employers / Post Job</a>
+        </div>
+    </div>
+    
+    <h1>My Posted Jobs</h1>
+    {% if jobs %}
+        {% for job in jobs %}
+            <div class="job-card">
+                <h2>{{ job.title }} at {{ job.company }}</h2>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Posted on:</strong> {{ job.posted_at|date:"M d, Y" }}</p>
+                <p><strong>Deadline:</strong> {{ job.deadline|date:"M d, Y" }}</p>
+                <p><strong>Status:</strong> {% if job.is_active %} Active {% else %} Closed {% endif %}</p>
+
+                <h3>Applications</h3>
+                {% if job.applications.all %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Applicant</th>
+                                <th>Applied On</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in job.applications.all %}
+                                <tr>
+                                    <td>{{ app.applicant.fullname }} ({{ app.applicant.email }})</td>
+                                    <td>{{ app.applied_at|date:"M d, Y" }}</td>
+                                    <td>{{ app.get_status_display }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No applications yet.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You haven’t posted any jobs yet.</p>
+    {% endif %}
+
+    <footer class="fixed">
+        &copy Job Portal 2025 | <a class="a1" href="#">Terms</a>
+    </footer>
 </body>
 </html>
